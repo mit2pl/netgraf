@@ -19,6 +19,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/home';
 
+    public const PET = '/pet';
+
+    public const STORE = '/store';
+
+    public const USER = '/user';
+
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      */
@@ -35,6 +41,22 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware(['web'])
+                ->namespace($this->namespace. '\Pet')
+                ->name('pet.')
+                ->prefix('pet')
+                ->group(base_path('routes/custom/pet.php'));
+            Route::middleware(['web'])
+                ->namespace($this->namespace. '\Store')
+                ->name('store.')
+                ->prefix('store')
+                ->group(base_path('routes/custom/store.php'));
+            Route::middleware(['web'])
+                ->namespace($this->namespace. '\User')
+                ->name('user.')
+                ->prefix('user')
+                ->group(base_path('routes/custom/user.php'));
         });
     }
 }
