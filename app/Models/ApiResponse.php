@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class ApiResponse extends Model
 {
-
-    protected $primaryKey = null;
+    public $incrementing = false;
     public $timestamps = false;
 
     protected $fillable = [

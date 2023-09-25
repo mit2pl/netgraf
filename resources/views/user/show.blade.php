@@ -18,7 +18,7 @@
                                     {{ session("success") }}
                                 </div>
                             @endif
-                            {{ Form::open(['route' => ['user.update', $user->username], 'method' => 'post']) }}
+                            {{ Form::open(['route' => ['user.update', $user->username], 'method' => 'put']) }}
                             <div id="deviceType" class="mb-3">
                                 <label for="inputProductTitle" class="form-label">Id</label>
                                 <h6 id="type" style="margin-left: 10px">{{ $user->id }}</h6>

@@ -10,4 +10,4 @@ Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 Route::post('store', [App\Http\Controllers\User\UserController::class, 'store'])->name('store');
 Route::get('/{username}', [App\Http\Controllers\User\UserController::class, 'show'])->name('show')->middleware(['auth']);
 Route::delete('/{username}', [App\Http\Controllers\User\UserController::class, 'destroy'])->name("destroy")->middleware(['auth']);
-Route::post('/{username}', [App\Http\Controllers\User\UserController::class, 'update'])->name("update")->middleware(["auth"]);
+Route::put('/{username}', [App\Http\Controllers\User\UserController::class, 'update'])->name("update")->middleware(["auth"]);

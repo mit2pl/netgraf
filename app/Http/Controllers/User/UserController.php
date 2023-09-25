@@ -45,15 +45,18 @@ class UserController
         if (!empty($user))
         {
             $user->delete();
-
             ApiResponse::create([
                 "code" => "20",
                 'type' => "unknown",
-                'message' => "uer was deleteaaaaa",
+                'message' => "uer was delete",
             ]);
-
             return redirect()->route("index")->with('success', 'User was deleted');
         }else {
+            ApiResponse::create([
+                'code' => '404',
+                'type' => 'unknown',
+                'message' => 'user not found'
+            ]);
             return redirect()->route("index")->with('errors', 'such user does not exist');
         }
     }
@@ -79,6 +82,11 @@ class UserController
             $update['password'] = Hash::make($request->get('password'));
         }
         User::where('id', $request->get('id'))->update($update);
+        ApiResponse::create([
+            'code' => '200',
+            'type' => 'fawe',
+            'message' => 'faswefaasda',
+        ]);
         return redirect()->route("user.show", $request->get('username'))->with('success', 'User was update');
     }
 }
